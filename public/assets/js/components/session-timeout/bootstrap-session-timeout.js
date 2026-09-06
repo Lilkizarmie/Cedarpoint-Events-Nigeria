@@ -64,24 +64,4 @@
         if (b && (i = a.extend(h, b)), i.warnAfter >= i.redirAfter) return console.error('Bootstrap-session-timeout plugin is miss-configured. Option "redirAfter" must be equal or greater than "warnAfter".'), !1;
         if ("function" != typeof i.onWarn) {
             var k = i.countdownMessage ? "<p>" + i.countdownMessage.replace(/{timer}/g, '<span class="countdown-holder"></span>') + "</p>" : "",
-                l = i.countdownBar ? '<div class="progress mb-3 mt-4">                   <div class="progress-bar bg-secondary countdown-bar active  progress-bar-striped progress-bar-animated" role="progressbar" style="min-width: 15px; width: 100%;">                                        </div>                 </div>' : "";
-            a("body").append('<div class="modal fade" id="session-timeout-dialog">               <div class="modal-dialog  modal-dialog-centered">                 <div class="modal-content">                                   <div class="modal-body">                     <p>' + i.message + "</p>                     " + k + "                     " + l + '                   </div>                   <div class="modal-footer justify-content-center">                     <button id="session-timeout-dialog-logout" type="button" class="btn btn-dark mb-0 mt-0">' + i.logoutButton + '</button>                     <button id="session-timeout-dialog-keepalive" type="button" class="btn btn-primary mb-0 mt-0" data-dismiss="modal">' + i.keepAliveButton + "</button>                   </div>                 </div>               </div>              </div>"), a("#session-timeout-dialog-logout").on("click", function() {
-                window.location = i.logoutUrl
-            }), a("#session-timeout-dialog").on("hide.bs.modal", function() {
-                d()
-            })
-        }
-        if (!i.ignoreUserActivity) {
-            var m = [-1, -1];
-            a(document).on("keyup mouseup mousemove touchend touchmove", function(b) {
-                if ("mousemove" === b.type) {
-                    if (b.clientX === m[0] && b.clientY === m[1]) return;
-                    m[0] = b.clientX, m[1] = b.clientY
-                }
-                d(), a("#session-timeout-dialog").length > 0 && a("#session-timeout-dialog").data("bs.modal") && a("#session-timeout-dialog").data("bs.modal").isShown && (a("#session-timeout-dialog").modal("hide"), a("body").removeClass("modal-open"), a("div.modal-backdrop").remove())
-            })
-        }
-        var n = !1;
-        d()
-    }
-}(jQuery);
+                l = i.countdownBar ? '<div class="progress mb-3 mt-4">                   <div class="progress-bar bg-secondary countdown-bar active  progress-bar-striped progress-bar-animated" role="progressbar" style="min-width: 15px; width: 100%;">
